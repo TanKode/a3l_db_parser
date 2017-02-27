@@ -28,17 +28,17 @@ class DatabaseParser
         sort($licenses);
 
         $return = null;
-        if (is_array($array)):
+        if (is_array($array)) {
             $string = json_encode($array);
-        $string = str_replace('{', '[', $string);
-        $string = str_replace('"', '`', $string);
-        $string = str_replace(':', ',', $string);
-        $string = str_replace('}', ']', $string);
-        if ($ints == false) {
-            $string = preg_replace("/`(\d+)`/", '$1', $string);
+            $string = str_replace('{', '[', $string);
+            $string = str_replace('"', '`', $string);
+            $string = str_replace(':', ',', $string);
+            $string = str_replace('}', ']', $string);
+            if ($ints == false) {
+                $string = preg_replace("/`(\d+)`/", '$1', $string);
+            }
+            $return = '"' . $string . '"';
         }
-        $return = '"'.$string.'"';
-        endif;
 
         return $return;
     }
