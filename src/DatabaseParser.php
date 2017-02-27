@@ -37,7 +37,7 @@ class DatabaseParser
             if ($ints == false) {
                 $string = preg_replace("/`(\d+)`/", '$1', $string);
             }
-            $return = '"' . $string . '"';
+            $return = '"'.$string.'"';
         }
 
         return $return;
